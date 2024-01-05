@@ -18,6 +18,7 @@ public class CharacterMoveSystem : AGameSystem, IUpdateSystem
 
     public void MoveCharacter(CharacterMoveGroup group, float deltaTime)
     {
+        if (!group.data1.isMove) return;
         group.entity.transform.LookAt(group.data1.targetPosition);
 
         group.entity.transform.position += group.data1.direction * group.data1.speed * deltaTime;

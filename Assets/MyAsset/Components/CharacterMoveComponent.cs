@@ -9,4 +9,5 @@ public class CharacterMoveComponent : IComponent
     public Vector3 direction;
     public float speed = 0.0f;
     public Vector3 targetPosition;
+    public bool isMove = false;
 }

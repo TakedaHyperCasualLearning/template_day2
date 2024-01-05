@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "template_day1.sln"
+    "dotnet.defaultSolution": "template_day2.sln"
 }
