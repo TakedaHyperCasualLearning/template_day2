@@ -38,6 +38,7 @@ public class PlayerAttackSystem : AGameSystem, IUpdateSystem
         gameEvent.onSpawnedEntity?.Invoke(bullet);
         bullet.transform.position = group.entity.transform.position;
         bullet.GetComponent<BulletMoveComponent>().direction = group.entity.transform.forward;
+        bullet.GetComponent<BulletAttackComponent>().attackPoint = group.data1.attackPoint;
         group.data1.isCanShot = false;
     }
 }

@@ -14,6 +14,7 @@ namespace Donuts
         [SerializeField] protected string sceneName = "GameScene";
         [SerializeField] private GameObject objectRoot;
         [SerializeField] private GameObject cameraObject;
+        [SerializeField] private GameObject levelUPUI;
 
         [SerializeField] private GameStat gameStat;
         private void Awake()
@@ -41,6 +42,7 @@ namespace Donuts
 
             Debug.Log("GameMain Start");
             masterSystem.gameEvent.onFirstInitialize?.Invoke();
+
         }
 
         private void SetupMasterSystem()
@@ -60,10 +62,14 @@ namespace Donuts
 
             new EnemySpawnSystem(),
             new EnemyMoveSystem(),
+            new EnemyAttackSystem(),
 
             new DamageSystem(),
 
             new CameraMoveSystem(),
+
+            new LevelUpSystem(),
+            new LevelUPUISystem(),
 
             new GameRuleSystem()
             );

@@ -275,13 +275,14 @@ MonoBehaviour:
   - rid: 1036980296228536337
   - rid: 1036980318243127296
   - rid: 1036980320107495424
+  - rid: 1036980320107495425
   references:
     version: 2
     RefIds:
     - rid: 1036980296228536326
       type: {class: CharacterBaseComponent, ns: , asm: Assembly-CSharp}
       data:
-        hitPointMax: 10
+        hitPointMax: 5
         hitPoint: 0
     - rid: 1036980296228536327
       type: {class: CharacterMoveComponent, ns: , asm: Assembly-CSharp}
@@ -301,3 +302,9 @@ MonoBehaviour:
         UIPositionOffset: {x: 0, y: 0, z: 1}
     - rid: 1036980320107495424
       type: {class: EnemyMoveComponent, ns: , asm: Assembly-CSharp}
+    - rid: 1036980320107495425
+      type: {class: EnemyAttackComponent, ns: , asm: Assembly-CSharp}
+      data:
+        attackPoint: 5
+        interval: 0.5
+        timer: 0

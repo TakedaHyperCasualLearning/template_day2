@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerAttackComponent : IComponent
 {
     public Entity owner { set; get; }
-    public float attackPoint;
+    public int attackPoint;
     public float interval;
     public float timer;
     public bool isCanShot;

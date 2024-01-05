@@ -9,6 +9,7 @@ public class EnemySpawnSystem : AGameSystem, IUpdateSystem
 {
     public void OnUpdate(float deltaTime)
     {
+        if (gameStat.isLevelUP) return;
         entityManager.Foreach<EnemySpawnGroup>(SpawnEnemy, deltaTime);
     }
 

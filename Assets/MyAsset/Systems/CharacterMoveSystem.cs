@@ -18,6 +18,7 @@ public class CharacterMoveSystem : AGameSystem, IUpdateSystem
 
     public void MoveCharacter(CharacterMoveGroup group, float deltaTime)
     {
+        if (gameStat.isLevelUP) return;
         if (!group.data1.isMove) return;
         group.entity.transform.LookAt(group.data1.targetPosition);
 

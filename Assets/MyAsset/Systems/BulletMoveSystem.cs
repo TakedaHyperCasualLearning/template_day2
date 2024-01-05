@@ -9,6 +9,7 @@ public class BulletMoveSystem : AGameSystem, IUpdateSystem
 {
     public void OnUpdate(float deltaTime)
     {
+        if (gameStat.isLevelUP) return;
         entityManager.Foreach<BulletMoveGroup>(MoveBullet, deltaTime);
     }
 

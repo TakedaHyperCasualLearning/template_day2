@@ -19,12 +19,12 @@ public class PlayerInputSystem : AGameSystem, IUpdateSystem
 
     private void InputMove(Vector3 pos)
     {
+        if (gameStat.isLevelUP) return;
         entityManager.Foreach<PlayerInputGroup, Vector3>(MoveCharacter, pos);
     }
 
     private void MoveCharacter(PlayerInputGroup group, Vector3 pos)
     {
-
         Vector3 direction = Vector3.zero;
         if (Input.GetKey(KeyCode.W)) direction += Vector3.forward;
         if (Input.GetKey(KeyCode.S)) direction += Vector3.back;

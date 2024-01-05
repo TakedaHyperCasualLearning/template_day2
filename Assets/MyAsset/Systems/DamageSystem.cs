@@ -21,8 +21,12 @@ public class DamageSystem : AGameSystem, IUpdateSystem
 
         if (group.data2.hitPoint <= 0)
         {
+            if (group.entity.GetComponent<EnemyAttackComponent>() != null)
+            {
+                gameStat.playerGroup.entity.GetComponent<LevelUPComponent>().experience++;
+            }
+
             gameEvent.onRemovedEntity?.Invoke(group.entity);
-            Debug.Log("Dead");
         }
     }
 }
