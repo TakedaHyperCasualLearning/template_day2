@@ -15,6 +15,7 @@ namespace Donuts
         [SerializeField] private GameObject objectRoot;
         [SerializeField] private GameObject cameraObject;
         [SerializeField] private GameObject levelUPUI;
+        [SerializeField] private GameObject gameOverUI;
 
         [SerializeField] private GameStat gameStat;
         private void Awake()
@@ -70,6 +71,8 @@ namespace Donuts
 
             new LevelUpSystem(),
             new LevelUPUISystem(),
+
+            new GameOverSystem(),
 
             new GameRuleSystem()
             );

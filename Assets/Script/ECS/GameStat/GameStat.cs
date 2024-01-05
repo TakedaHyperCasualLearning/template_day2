@@ -9,5 +9,7 @@ namespace Donuts
         public int hitPointLevel = 0;
         public int speedLevel = 0;
         public bool isLevelUP = false;
+
+        public bool isGameOver = false;
     }
 }

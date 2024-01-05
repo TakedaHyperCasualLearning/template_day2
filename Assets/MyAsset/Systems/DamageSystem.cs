@@ -21,9 +21,15 @@ public class DamageSystem : AGameSystem, IUpdateSystem
 
         if (group.data2.hitPoint <= 0)
         {
+            Debug.Log(group.entity.gameObject.name + " is Dead");
             if (group.entity.GetComponent<EnemyAttackComponent>() != null)
             {
                 gameStat.playerGroup.entity.GetComponent<LevelUPComponent>().experience++;
+            }
+            if (group.entity.GetComponent<PlayerAttackComponent>() != null)
+            {
+                gameStat.isGameOver = true;
+                group.data2.hitPoint = 0;
             }
 
             gameEvent.onRemovedEntity?.Invoke(group.entity);

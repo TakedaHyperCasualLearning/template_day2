@@ -9,6 +9,7 @@ public class EnemyAttackSystem : AGameSystem, IUpdateSystem
 {
     public void OnUpdate(float deltaTime)
     {
+        if (gameStat.isGameOver) return;
         entityManager.Foreach<EnemyAttackGroup>(CheckCollision);
     }
 
@@ -27,6 +28,7 @@ public class EnemyAttackSystem : AGameSystem, IUpdateSystem
         if (radius < distance) return;
 
         gameStat.playerGroup.entity.GetComponent<DamageComponent>().damagePoint = group.data1.attackPoint;
+        Debug.Log(gameStat.playerGroup.entity.gameObject.name + " is Damaged");
         group.data1.timer = 0.0f;
     }
 }
