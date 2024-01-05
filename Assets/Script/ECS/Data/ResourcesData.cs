@@ -9,5 +9,6 @@ namespace Donuts
     {
         public GameObject enemyPrefab;
         public GameObject bulletPrefab;
+        public GameObject followBulletPrefab;
     }
 }

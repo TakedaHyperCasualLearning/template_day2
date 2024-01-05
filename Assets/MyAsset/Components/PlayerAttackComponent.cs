@@ -10,4 +10,5 @@ public class PlayerAttackComponent : IComponent
     public float interval;
     public float timer;
     public bool isCanShot;
+    public List<GameObject> weaponList = new List<GameObject>();
 }

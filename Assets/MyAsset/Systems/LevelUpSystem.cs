@@ -55,6 +55,15 @@ public class LevelUpSystem : AGameSystem, IUpdateSystem
             gameStat.isLevelUP = false;
         }
 
+        if (group.data1.followBulletOldLevel < gameStat.followBulletLevel)
+        {
+            if (gameStat.followBulletLevel == 1)
+            {
+                group.data3.weaponList.Add(Singleton.instance.resourceData.followBulletPrefab);
+            }
+            group.data1.followBulletOldLevel = gameStat.followBulletLevel;
+            gameStat.isLevelUP = false;
+        }
 
         if (group.data1.experience < group.data1.levelUpBorder) return;
 

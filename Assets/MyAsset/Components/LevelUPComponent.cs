@@ -23,4 +23,8 @@ public class LevelUPComponent : IComponent
     public int speedOldLevel = 0;
     public float speedRiseValue = 0;
     public float speedBaseValue = 0;
+
+    public int followBulletOldLevel = 0;
+    public int followBulletRiseValue = 0;
+    public int followBulletBaseValue = 0;
 }

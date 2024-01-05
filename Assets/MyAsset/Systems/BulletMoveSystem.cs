@@ -15,6 +15,13 @@ public class BulletMoveSystem : AGameSystem, IUpdateSystem
 
     private void MoveBullet(BulletMoveGroup group, float deltaTime)
     {
+        FollowBulletComponent followBullet = group.entity.GetComponent<FollowBulletComponent>();
+        if (followBullet != null && followBullet.targetTransform != null)
+        {
+            group.entity.transform.position = Vector3.MoveTowards(group.entity.transform.position, followBullet.targetTransform.position, group.data1.speed * deltaTime);
+            return;
+        }
+
         group.entity.transform.position += group.data1.direction * group.data1.speed * deltaTime;
     }
 }

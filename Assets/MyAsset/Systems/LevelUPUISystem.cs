@@ -31,6 +31,19 @@ public class LevelUPUISystem : AGameSystem, IUpdateSystem
 
     private void OnClickButtonFunction(LevelUPUIGroup group)
     {
+        List<int> randomList = new List<int>();
+        for (int i = 0; i < 4; i++)
+        {
+            int temp = Random.Range(0, 4);
+            if (randomList.Contains(temp))
+            {
+                i--;
+                continue;
+            }
+            randomList.Add(temp);
+        }
+        group.data1.buttonNumberList = randomList;
+
         group.data1.buttonNumberList.Add(0);
         group.data1.buttonNumberList.Add(1);
         group.data1.buttonNumberList.Add(2);
@@ -52,6 +65,10 @@ public class LevelUPUISystem : AGameSystem, IUpdateSystem
                     group.data1.levelUpButtonList[i].onClick.AddListener(SpeedUP);
                     group.data1.levelUpTextList[i].text = "Speed UP";
                     break;
+                case 3:
+                    group.data1.levelUpButtonList[i].onClick.AddListener(FollowBulletUP);
+                    group.data1.levelUpTextList[i].text = "FollowBullet UP";
+                    break;
             }
         }
     }
@@ -69,6 +86,10 @@ public class LevelUPUISystem : AGameSystem, IUpdateSystem
     private void SpeedUP()
     {
         gameStat.speedLevel += 1;
+    }
+    private void FollowBulletUP()
+    {
+        gameStat.followBulletLevel += 1;
     }
 
 }
