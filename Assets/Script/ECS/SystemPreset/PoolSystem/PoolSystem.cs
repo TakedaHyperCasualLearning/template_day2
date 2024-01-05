@@ -13,6 +13,7 @@ namespace Donuts
         {
             gameFunction.onSpawnEntityFromPool = OnSpawnEntityFromPool;
             gameEvent.onRemovedEntity += OnRemovedEntity;
+            gameFunction.onGetEntityList = GetEntityList;
         }
 
         private Entity OnSpawnEntityFromPool(EntityComponent prefab)
@@ -50,6 +51,13 @@ namespace Donuts
         {
             entity.gameObject.SetActive(false);
 
+        }
+
+        private List<Entity> GetEntityList(EntityComponent prefab)
+        {
+            int hash = prefab.GetHashCode();
+            if (!pool.ContainsKey(hash)) return null;
+            return pool[hash];
         }
     }
 }

@@ -19,8 +19,8 @@ public class EnemySpawnSystem : AGameSystem, IUpdateSystem
         if (group.data1.timer < group.data1.spawnInterval) return;
 
         group.data1.timer = 0.0f;
-        GameObject enemy = gameFunction.onSpawnGameObjectFromPool?.Invoke(Singleton.instance.resourceData.enemyPrefab, group.entity.transform);
-        gameEvent.onSpawnedEntity(enemy.GetComponent<EntityComponent>().ToEntity());
-        enemy.transform.position = gameStat.playerGroup.entity.transform.position;
+        Entity enemy = gameFunction.onSpawnEntityFromPool?.Invoke(Singleton.instance.resourceData.enemyPrefab.GetComponent<EntityComponent>());
+        gameEvent.onSpawnedEntity(enemy);
+        // enemy.transform.position = gameStat.playerGroup.entity.transform.position;
     }
 }

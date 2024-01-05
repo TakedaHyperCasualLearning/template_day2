@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 namespace Donuts
 {
@@ -6,11 +7,13 @@ namespace Donuts
     {
         public Func<EntityComponent, Entity> onSpawnEntityFromPool;
         public Func<GameObject, Transform, GameObject> onSpawnGameObjectFromPool;
+        public Func<EntityComponent, List<Entity>> onGetEntityList;
 
         public GameFunction()
         {
             onSpawnEntityFromPool = DefaultSpawnEntity;
             onSpawnGameObjectFromPool = DefaultSpawnGameObject;
+            onGetEntityList = DefaultGetEntityList;
         }
 
         public static GameObject DefaultSpawnGameObject(GameObject prefab, Transform parent)
@@ -22,6 +25,11 @@ namespace Donuts
         {
             EntityComponent entityComponent = GameObject.Instantiate<EntityComponent>(prefab);
             return entityComponent.ToEntity();
+        }
+
+        public static List<Entity> DefaultGetEntityList(EntityComponent prefab)
+        {
+            return null;
         }
 
     }
